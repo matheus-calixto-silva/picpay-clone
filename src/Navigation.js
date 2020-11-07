@@ -30,68 +30,70 @@ const icons = {
 }
 
 export default function Navigation() {
-  return(
+  return (
     <Tab.Navigator
-        screenOptions={({ route, navigation }) => ({
-          tabBarIcon: ({ color, size, focused }) => {
-            if(route.name === 'Pay'){
-              return <PayButton 
-                onPress={() => navigation.navigate(Pay)}
+      screenOptions={({ route, navigation }) => ({
+        tabBarIcon: ({ color, size, focused }) => {
+          if (route.name === 'Pay') {
+            return (
+              <PayButton
+                onPress={() => navigation.navigate('Pay')}
                 focused={focused}
               />
-            }
-            const { lib: Icon, name } = icons[route.name];
-            return <Icon name={name} size={size} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          style: {
-            backgroundColor: '#131418',
-            borderTopColor: 'rgba(255, 255, 255, 0.2)',
-          },
-          activeTintColor: '#FFF',
-          inactiveTintColor: '#92929c',
-        }}
+            );
+          }
+          const { lib: Icon, name } = icons[route.name];
+          return <Icon name={name} size={size} color={color} />;
+        },
+      })}
+      tabBarOptions={{
+        style: {
+          backgroundColor: '#131418',
+          borderTopColor: 'rgba(255, 255, 255, 0.2)',
+        },
+        activeTintColor: '#FFF',
+        inactiveTintColor: '#92929c',
+      }}
     >
       <Tab.Screen
-        name="Home" 
+        name="Home"
         component={HomeScreen}
         options={{
           title: "Inicio",
         }}
       />
-      
+
       <Tab.Screen
-        name="Wallet" 
+        name="Wallet"
         component={WalletScreen}
         options={{
           title: "Carteira",
         }}
       />
 
-      <Tab.Screen 
-        name="Pay" 
+      <Tab.Screen
+        name="Pay"
         component={PayScreen}
         options={{
           title: "",
         }}
-        />
-        
-        <Tab.Screen 
-        name="Notifications" 
+      />
+
+      <Tab.Screen
+        name="Notifications"
         component={PayScreen}
         options={{
           title: "Notificações",
         }}
-        />
-        
-        <Tab.Screen 
-        name="Settings" 
+      />
+
+      <Tab.Screen
+        name="Settings"
         component={PayScreen}
         options={{
           title: "Ajustes",
         }}
-        />
+      />
     </Tab.Navigator>
   );
 }

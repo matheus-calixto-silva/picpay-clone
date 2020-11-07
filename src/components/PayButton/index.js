@@ -7,7 +7,7 @@ import { Button, Label } from './styles';
 
 export default function PayButton({ onPress, focused }){
   return (
-    <TouchableWithoutFeedback>
+    <TouchableWithoutFeedback onPress={onPress}>
     <Button
       colors={
         focused
